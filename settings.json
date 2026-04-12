@@ -6,9 +6,9 @@
     "type": "offline"
   },
   "server": {
-    "ip": "slobtest1.aternos.me",
-    "port": 27586,
-    "version": "",
+    "ip": "ZenTheCosmic.aternos.me",
+    "port":64788,
+    "version": "1.21.11",
     "try-creative": false
   },
   "position": {
@@ -73,8 +73,8 @@
     "place-night": false
   },
   "discord": {
-    "enabled": false,
-    "webhookUrl": "YOUR_DISCORD_WEBHOOK_URL_HERE",
+    "enabled": true ,
+    "webhookUrl": "https://discord.com/api/webhooks/1492788142909034668/pJhLxWmn3y8gy0TrC0x_ed3bzae5emHch7gRC6YOjCu-7QhFInQa4pg23oTIxpeLhCCS",
     "events": {
       "connect": true,
       "disconnect": true,
