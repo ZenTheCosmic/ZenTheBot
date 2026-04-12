@@ -156,7 +156,7 @@ app.get('/', (req, res) => {
           >
             <div id="status-icon" aria-hidden="true" class="status-icon offline">&#x2717;</div>
             <div>
-              <div id="status-label" class="status-label offline">Connecting…</div>
+              <div id="status-label" class="status-label offline">Connectingâ€¦</div>
               <div id="status-detail" class="status-detail">Establishing connection</div>
             </div>
           </section>
@@ -165,12 +165,12 @@ app.get('/', (req, res) => {
             <dl>
               <div class="stat-card">
                 <dt>Uptime</dt>
-                <dd id="uptime-text">—</dd>
+                <dd id="uptime-text">â€”</dd>
                 <p class="stat-detail">Time since last connection</p>
               </div>
               <div class="stat-card">
                 <dt>Coordinates</dt>
-                <dd id="coords-text">Searching…</dd>
+                <dd id="coords-text">Searchingâ€¦</dd>
                 <p class="stat-detail">Bot's current in-game position</p>
               </div>
               <div class="stat-card">
@@ -221,7 +221,7 @@ app.get('/', (req, res) => {
 
               section.className = 'status-section ' + (online ? 'online' : 'offline');
               icon.className    = 'status-icon '    + (online ? 'online' : 'offline');
-              icon.textContent  = online ? '✓' : '✗';
+              icon.textContent  = online ? 'âœ“' : 'âœ—';
               label.className   = 'status-label '   + (online ? 'online' : 'offline');
               label.textContent = online ? 'Connected' : 'Disconnected';
               detail.textContent = online ? 'Bot is active on the server' : 'Attempting to reconnect';
@@ -234,7 +234,7 @@ app.get('/', (req, res) => {
                 const z = Math.floor(data.coords.z);
                 document.getElementById('coords-text').textContent = 'X ' + x + ', Y ' + y + ', Z ' + z;
               } else {
-                document.getElementById('coords-text').textContent = 'Searching…';
+                document.getElementById('coords-text').textContent = 'Searchingâ€¦';
               }
             } catch (e) {
               const label = document.getElementById('status-label');
@@ -378,7 +378,7 @@ app.get("/tutorial", (req, res) => {
           }
 
           li::before {
-            content: "·";
+            content: "Â·";
             position: absolute;
             left: 6px;
             color: #3fb950;
@@ -449,7 +449,7 @@ app.get("/tutorial", (req, res) => {
             <ol>
               <li>Import your GitHub repo into <strong>Replit</strong>.</li>
               <li>Set the run command to <code>npm start</code>.</li>
-              <li>Hit <strong>Run</strong> — the bot connects automatically.</li>
+              <li>Hit <strong>Run</strong> â€” the bot connects automatically.</li>
               <li>The bot pings itself every 10 minutes to stay alive.</li>
             </ol>
           </div>
@@ -781,7 +781,7 @@ app.get("/logs", (req, res) => {
                   id="console-input"
                   class="console-input"
                   type="text"
-                  placeholder="Type / for commands, or any message…"
+                  placeholder="Type / for commands, or any messageâ€¦"
                   autocomplete="off"
                   spellcheck="false"
                 >
@@ -1041,7 +1041,7 @@ app.post("/command", express.json(), (req, res) => {
 
   if (!bot || typeof bot.chat !== "function") {
     const msg = bot
-      ? "Bot is still connecting — try again in a moment."
+      ? "Bot is still connecting â€” try again in a moment."
       : "Bot is not running.";
     addLog(`[Console] ${msg}`);
     return res.json({ success: false, msg });
@@ -1351,7 +1351,7 @@ function createBot() {
         );
       }
 
-      // ALWAYS reconnect — bot must never leave the server
+      // ALWAYS reconnect â€” bot must never leave the server
       scheduleReconnect();
     });
 
@@ -1420,13 +1420,13 @@ function initializeModules(bot, mcData, defaultMove) {
       if (
         msg.includes("/register") ||
         msg.includes("register ") ||
-        msg.includes("지정된 비밀번호")
+        msg.includes("ì§€ì •ëœ ë¹„ë°€ë²ˆí˜¸")
       ) {
         tryAuth("register");
       } else if (
         msg.includes("/login") ||
         msg.includes("login ") ||
-        msg.includes("로그인")
+        msg.includes("ë¡œê·¸ì¸")
       ) {
         tryAuth("login");
       }
@@ -1864,7 +1864,7 @@ function chatModule(bot) {
         config.discord.events &&
         config.discord.events.chat
       ) {
-        sendDiscordWebhook(`💬 **${username}**: ${message}`, 0x7289da);
+        sendDiscordWebhook(`ðŸ’¬ **${username}**: ${message}`, 0x7289da);
       }
 
       if (config.chat && config.chat.respond) {
@@ -2001,7 +2001,7 @@ process.on("uncaughtException", (err) => {
     addLog("[FATAL] Known network/protocol error - recovering gracefully...");
   }
 
-  // ALWAYS recover — bot must never stay disconnected
+  // ALWAYS recover â€” bot must never stay disconnected
   clearAllIntervals();
   botState.connected = false;
 
@@ -2011,7 +2011,7 @@ process.on("uncaughtException", (err) => {
       "[FATAL] isReconnecting was stuck - resetting before crash recovery",
     );
     isReconnecting = false;
-    // BUG FIX: was referencing non-existent 'reconnectTimeout' — correct name is 'reconnectTimeoutId'
+    // BUG FIX: was referencing non-existent 'reconnectTimeout' â€” correct name is 'reconnectTimeoutId'
     if (reconnectTimeoutId) {
       clearTimeout(reconnectTimeoutId);
       reconnectTimeoutId = null;
@@ -2043,7 +2043,7 @@ process.on("unhandledRejection", (reason) => {
     msg.includes("PartialReadError");
 
   if (isNetworkError && !isReconnecting) {
-    addLog("[FATAL] Network rejection — triggering reconnect...");
+    addLog("[FATAL] Network rejection â€” triggering reconnect...");
     clearAllIntervals();
     botState.connected = false;
     if (bot) {
@@ -2055,11 +2055,11 @@ process.on("unhandledRejection", (reason) => {
 });
 
 process.on("SIGTERM", () => {
-  addLog("[System] SIGTERM received — ignoring, bot will stay alive.");
+  addLog("[System] SIGTERM received â€” ignoring, bot will stay alive.");
 });
 
 process.on("SIGINT", () => {
-  addLog("[System] SIGINT received — ignoring, bot will stay alive.");
+  addLog("[System] SIGINT received â€” ignoring, bot will stay alive.");
 });
 
 // =============================
@@ -2076,4 +2076,4 @@ addLog(
 );
 addLog("=".repeat(50));
 
-createBot();
+createBot()
