@@ -6,7 +6,7 @@
     "type": "offline"
   },
   "server": {
-    "ip": "ZenTheCosmic.aternos.me",
+    "ip": "kaluga.aternos.host",
     "port": 64788,
     "version": "1.21.11",
     "try-creative": false
