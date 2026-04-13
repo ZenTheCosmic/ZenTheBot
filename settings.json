@@ -7,15 +7,15 @@
   },
   "server": {
     "ip": "ZenTheCosmic.aternos.me",
-    "port":64788,
-    "version": "1.21.11",
+    "port": 27586,
+    "version": "",
     "try-creative": false
   },
   "position": {
     "enabled": true,
-    "x": 844,
-    "y": 51,
-    "z": 201
+    "x": 0,
+    "y": 66,
+    "z": 0
   },
   "utils": {
     "auto-auth": {
@@ -29,7 +29,7 @@
     "chat-messages": {
       "enabled": true,
       "repeat": true,
-      "repeat-delay": 600,
+      "repeat-delay": 300,
       "messages": [
         "I'm a regular player",
         "Subscribe to ZenTheCosmic!",
@@ -46,7 +46,7 @@
     "circle-walk": {
       "enabled": true,
       "radius": 4,
-      "speed": 5
+      "speed": 6
     },
     "look-around": {
       "enabled": true,
@@ -73,8 +73,9 @@
     "place-night": false
   },
   "discord": {
-    "enabled": true ,
-    "webhookUrl": "https://discord.com/api/webhooks/1492788142909034668/pJhLxWmn3y8gy0TrC0x_ed3bzae5emHch7gRC6YOjCu-7QhFInQa4pg23oTIxpeLhCCS",
+    "enabled": false,
+    "webhookUrl":
+    "https://discord.com/api/webhooks/1492788142909034668/pJhLxWmn3y8gy0TrC0x_ed3bzae5emHch7gRC6YOjCu-7QhFInQa4pg23oTIxpeLhCCS",
     "events": {
       "connect": true,
       "disconnect": true,
