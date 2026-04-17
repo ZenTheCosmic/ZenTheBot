@@ -6,8 +6,8 @@
     "type": "offline"
   },
   "server": {
-    "ip": "ZenTheCosmic.aternos.me",
-    "port": 64788,
+    "ip": "Zeraya.aternos.me",
+    "port": 56505,
     "version": "1.21.11",
     "try-creative": false
   },
