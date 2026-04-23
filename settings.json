@@ -1,12 +1,12 @@
 {
   "name": "Zen AFK Bot",
   "bot-account": {
-    "username": "ZenTheBot",
+    "username": "ZenTheBot2",
     "password": "",
     "type": "offline"
   },
   "server": {
-    "ip": "Zeraya.aternos.me",
+    "ip": "Zeray.aternos.me",
     "port": 56505,
     "version": "1.21.11",
     "try-creative": false
